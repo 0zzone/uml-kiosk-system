@@ -1,0 +1,25 @@
+package uml;
+public class Transaction {
+	private static IdCounter counter = new IdCounter();
+	private int id = counter.getId();
+	private User user;
+	private Double amount;
+
+	protected Transaction(User user, Double amount) {
+		user.getAccount().pay(amount);
+		this.user = user;
+		this.amount = amount;
+	}
+
+	public int getId() {
+		return this.id;
+	}
+
+	public User getUser() {
+		return this.user;
+	}
+
+	public Double getAmount() {
+		return this.amount;
+	}
+}

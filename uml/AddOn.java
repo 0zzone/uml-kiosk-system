@@ -1,9 +1,9 @@
+package uml;
 public class AddOn {
-
-	Item item;
-	String name;
-	Double price;
-	Double size;
+	private Item item;
+	public String name;
+	public Double price;
+	public Double size;
 
 	public AddOn(Item item, String name, Double price, Double size){
 		this.item = item;
