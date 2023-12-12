@@ -22,4 +22,9 @@ public class Transaction {
 	public Double getAmount() {
 		return this.amount;
 	}
+
+	@Override
+	public String toString() {
+		return "Transaction [id: %d, amount: %.2f, user: %s]".formatted(id, amount, user.name);
+	}
 }

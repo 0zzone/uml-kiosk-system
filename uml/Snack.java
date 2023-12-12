@@ -8,4 +8,8 @@ public class Snack extends Item {
 		this.weight = weight;
 	}
 
+	@Override
+	public String toString() {
+		return "Snack (weight: %.2f) --> ".formatted(weight) + super.toString();
+	}
 }

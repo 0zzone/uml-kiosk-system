@@ -26,4 +26,8 @@ public class Confirmed extends BasketState {
         basket.state = new Served();
     }
 
+    @Override
+    public String toString() {
+        return "State [Confirmed]";
+    }
 }

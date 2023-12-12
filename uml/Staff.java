@@ -6,6 +6,6 @@ public class Staff extends User {
 	}
 
 	public void serve(Basket basket) {
-		
+		basket.serve();
 	}
 }

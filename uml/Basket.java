@@ -1,4 +1,5 @@
 package uml;
+
 import java.util.ArrayList;
 
 public class Basket {
@@ -30,7 +31,7 @@ public class Basket {
 			}
 		}
 		return total;
-	} 
+	}
 
 	public void addElement(Item item, int quantity, ArrayList<AddOn> addOns) {
 		this.state.addToBasket(item, quantity, addOns);
@@ -48,9 +49,25 @@ public class Basket {
 		return this.kiosk;
 	}
 
+	public int getId() {
+		return this.id;
+	}
+
 	public void serve() {
 		if (this.state instanceof Confirmed) {
 			this.state.proceed();
 		}
+	}
+
+	@Override
+	public String toString() {
+		String res = "Basket [id: %d, total price: %.2f, user: %s]".formatted(id, getTotalPrice(),
+				user == null ? "None" : user.name);
+		res += state.toString();
+		res += "\nElements:";
+		for (BasketElement element : elements) {
+			res += "\n- " + element;
+		}
+		return res;
 	}
 }

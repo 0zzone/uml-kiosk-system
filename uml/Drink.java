@@ -7,4 +7,8 @@ public class Drink extends Item {
 		this.volume = volume;
 	}
 
+	@Override
+	public String toString() {
+		return "Drink (volume: %.2f) --> ".formatted(volume) + super.toString();
+	}
 }

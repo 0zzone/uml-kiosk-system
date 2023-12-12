@@ -28,4 +28,13 @@ public abstract class Item {
 	public int getId() {
 		return this.id;
 	}
+
+	@Override
+	public String toString() {
+		String res = "Item [id: %d, name: %s, price: %.2f, availability: %d]".formatted(id, name, price, availability);
+		for (AddOn addOn : availableAddOns) {
+			res += "\n--> " + addOn;
+		}
+		return res;
+	}
 }

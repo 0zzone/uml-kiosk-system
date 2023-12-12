@@ -16,7 +16,12 @@ public class Account {
 
 	protected Double pay(Double amount) {
 		this.balance -= amount;
-		System.out.println("$%.2d have been deducted from account.".formatted(amount));
+		System.out.println("$%.2f have been deducted from account.".formatted(amount));
 		return amount;
+	}
+
+	@Override
+	public String toString() {
+		return "Account [balance: %.2f]".formatted(balance);
 	}
 }

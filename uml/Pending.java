@@ -66,4 +66,9 @@ public class Pending extends BasketState {
             element.getItem().availability -= element.quantity;
         }
     }
+
+    @Override
+    public String toString() {
+        return "State [Pending]";
+    }
 }

@@ -2,12 +2,14 @@ package uml;
 import java.util.ArrayList;
 
 public class Shop {
+	public String name; 
 	private ArrayList<Item> items = new ArrayList<Item>();
 	private ArrayList<Kiosk> kiosks = new ArrayList<Kiosk>();
 	private DrinkFactory drinkFactory = new DrinkFactory();
 	private SnackFactory snackFactory = new SnackFactory();
 
-	public Shop() {
+	public Shop(String name) {
+		this.name = name;
 	}
 
 	public ArrayList<Item> browseItems() {
@@ -43,5 +45,20 @@ public class Shop {
 
 	public void addKiosk(Kiosk kiosk) {
 		this.kiosks.add(kiosk);
+	}
+
+	@Override 
+	public String toString() {
+		String res = "Shop [name: %s]".formatted(name);
+		res += "\nItems:";
+		for (Item item : items) {
+			res += "\n- " + item;
+		}
+		res += "\n";
+		res += "\nKiosks:";
+		for (Kiosk kiosk : kiosks) {
+			res += "\n- " + kiosk;
+		}
+		return res;
 	}
 }

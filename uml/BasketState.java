@@ -9,4 +9,6 @@ public abstract class BasketState {
 	protected abstract BasketElement editBasketElement(int elementId, int quantity, ArrayList<AddOn> addOns);
 	protected abstract BasketElement removeFromBasket(int elementId);
 	protected abstract void proceed();
+
+	public abstract String toString();
 }

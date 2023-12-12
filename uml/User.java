@@ -12,4 +12,11 @@ public class User {
 	public Account getAccount() {
 		return this.account;
 	}
+
+	@Override 
+	public String toString() {
+		String res = "User [id: %d, name: %s]".formatted(id, name);
+		res += "\n--> " + account;
+		return res;
+	}
 }

@@ -25,4 +25,9 @@ public class Served extends BasketState {
     protected void proceed() {
         return;
     }
+
+    @Override
+    public String toString() {
+        return "State [Served]";
+    }
 }
