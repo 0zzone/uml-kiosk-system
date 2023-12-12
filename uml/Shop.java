@@ -43,10 +43,6 @@ public class Shop {
 		return kiosk;
 	}
 
-	public void addKiosk(Kiosk kiosk) {
-		this.kiosks.add(kiosk);
-	}
-
 	@Override 
 	public String toString() {
 		String res = "Shop [name: %s]".formatted(name);
