@@ -53,6 +53,18 @@ public class Basket {
 		return this.id;
 	}
 
+	public boolean isConfirmed() {
+		return !(this.state instanceof Pending);
+	}
+
+	public void confirm(User user) {
+		this.state.setUser(user);
+		if (!this.isConfirmed()) {
+			this.state.proceed();
+		}
+	
+	}
+
 	public void serve() {
 		if (this.state instanceof Confirmed) {
 			this.state.proceed();

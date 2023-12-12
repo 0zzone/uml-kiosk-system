@@ -6,7 +6,6 @@ public class Transaction {
 	private Double amount;
 
 	protected Transaction(User user, Double amount) {
-		user.getAccount().pay(amount);
 		this.user = user;
 		this.amount = amount;
 	}

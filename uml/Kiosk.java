@@ -13,8 +13,9 @@ public class Kiosk {
 	}
 
 	public Basket getPendingBasket() {
-		if (pendingBasket == null) {
+		if (pendingBasket == null || pendingBasket.isConfirmed()) {
 			pendingBasket = new Basket(this);
+			basketHistory.add(pendingBasket);
 		}
 		return this.pendingBasket;
 	}
@@ -24,15 +25,24 @@ public class Kiosk {
 	}
 
 	public void confirmOrder(User user) {
-		if (this.pendingBasket == null)
+		if (pendingBasket == null) {
 			return;
-		this.pendingBasket.state.setUser(user);
-		this.pendingBasket.state.proceed();
+		}
+		pendingBasket.confirm(user);
 	}
 
 	public void createTransaction(User user, Double amount) {
+		user.getAccount().pay(amount);
 		Transaction transaction = new Transaction(user, amount);
 		this.transactionHistory.add(transaction);
+	}
+
+	public ArrayList<Basket> getBasketHistory() {
+		return this.basketHistory;
+	}
+
+	public ArrayList<Transaction> getTransactionHistory() {
+		return this.transactionHistory;
 	}
 
 	@Override
