@@ -61,7 +61,7 @@ public class Pending extends BasketState {
         Double total = basket.getTotalPrice();
         basket.getKiosk().createTransaction(basket.user, total);
         _updateItemsAvailability();
-        basket.state = new Confirmed(this);
+        basket.state = new Confirmed(basket);
     }
 
     private void _updateItemsAvailability() {

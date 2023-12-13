@@ -27,7 +27,7 @@ public class Confirmed extends BasketState {
 
     @Override
     public void proceed() {
-        basket.state = new Served(this);
+        basket.state = new Served(basket);
     }
 
     @Override
