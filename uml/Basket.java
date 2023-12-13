@@ -8,10 +8,11 @@ public class Basket {
 	private Kiosk kiosk;
 	protected User user = null;
 	protected ArrayList<BasketElement> elements = new ArrayList<BasketElement>();
-	protected BasketState state = new Pending();
+	public BasketState state;
 
 	protected Basket(Kiosk kiosk) {
 		this.kiosk = kiosk;
+		this.state = new Pending(this);
 	}
 
 	protected void setState(BasketState state) {

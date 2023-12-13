@@ -2,7 +2,9 @@ package uml;
 import java.util.ArrayList;
 
 public class Pending extends BasketState {
-    protected Pending() {
+
+    protected Pending(Basket basket) {
+        this.basket = basket;
     }
 
     @Override
@@ -10,6 +12,7 @@ public class Pending extends BasketState {
         BasketElement el = new BasketElement(item);
         el.quantity = quantity;
         el.addOns = addOns;
+        System.out.println();
         basket.elements.add(el);
     }
 
@@ -46,7 +49,7 @@ public class Pending extends BasketState {
     }
 
     @Override
-    protected void proceed() {
+    public void proceed() {
         /**
          * - check if user has been set
          * - make a new transaction
@@ -58,7 +61,7 @@ public class Pending extends BasketState {
         Double total = basket.getTotalPrice();
         basket.getKiosk().createTransaction(basket.user, total);
         _updateItemsAvailability();
-        basket.state = new Confirmed();
+        basket.state = new Confirmed(this);
     }
 
     private void _updateItemsAvailability() {

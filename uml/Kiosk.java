@@ -6,14 +6,14 @@ public class Kiosk {
 	private static IdCounter counter = new IdCounter();
 	private int id = counter.getId();
 	private ArrayList<Basket> basketHistory = new ArrayList<Basket>();
-	Basket pendingBasket = null;
+	public Basket pendingBasket = null;
 	private ArrayList<Transaction> transactionHistory = new ArrayList<Transaction>();
 
 	public Kiosk() {
 	}
 
 	public Basket getPendingBasket() {
-		if (pendingBasket == null || pendingBasket.isConfirmed()) {
+		if (pendingBasket == null || !pendingBasket.isConfirmed()) {
 			pendingBasket = new Basket(this);
 			basketHistory.add(pendingBasket);
 		}

@@ -3,6 +3,10 @@ import java.util.ArrayList;
 
 public class Confirmed extends BasketState {
 
+    public Confirmed(Basket basket){
+        this.basket = basket;
+    }
+
     @Override
     protected void setUser(User user) {
     }
@@ -22,8 +26,8 @@ public class Confirmed extends BasketState {
     }
 
     @Override
-    protected void proceed() {
-        basket.state = new Served();
+    public void proceed() {
+        basket.state = new Served(this);
     }
 
     @Override

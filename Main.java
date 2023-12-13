@@ -1,4 +1,5 @@
 import uml.*;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -19,7 +20,11 @@ public class Main {
         student.getAccount().topup(200.0);
         System.out.println(student);
 
-        // create an order on a kiosk 
-        // ...
+        // create an order on a kiosk
+        kiosk.pendingBasket = kiosk.getPendingBasket();
+        ArrayList<AddOn> addOnsSelected = new ArrayList<AddOn>();
+        addOnsSelected.add(rice.availableAddOns.get(0));
+        kiosk.pendingBasket.addElement(rice, 3, addOnsSelected);
+        // kiosk.pendingBasket.state.proceed();
     }
 }

@@ -6,7 +6,7 @@ public abstract class Item {
 	private int id = counter.getId();
 	public String name;
 	public Double price;
-	protected ArrayList<AddOn> availableAddOns = new ArrayList<AddOn>();
+	public ArrayList<AddOn> availableAddOns = new ArrayList<AddOn>();
 	public int availability;
 
 	public Item(String name, Double price, int availability) {
@@ -28,6 +28,7 @@ public abstract class Item {
 	public int getId() {
 		return this.id;
 	}
+
 
 	@Override
 	public String toString() {
