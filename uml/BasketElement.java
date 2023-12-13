@@ -23,7 +23,7 @@ public class BasketElement {
 	@Override
 	public String toString() {
 		String res = "BasketElement [id: %d, quantity: %d]".formatted(id, quantity);
-		res += "\n- " + item;
+		res += "\n-- " + item;
 		res += "\nAddons:";
 		for (AddOn addOn : addOns) {
 			res += "\n--> " + addOn;
